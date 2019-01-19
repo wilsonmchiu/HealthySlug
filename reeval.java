@@ -13,6 +13,7 @@ public class reeval
         //make this part use some method to get the arraylist of foods
         ArrayList<Food> foodslist = new ArrayList<Food>();
 
+        
 
 
         diet samplediet = new diet(fatgoal, protgoal, carbgoal);
@@ -34,9 +35,15 @@ public class reeval
     {
         diet temp = new diet(0,0,0);
         temp.addfood(f);
-        for(int x = 0; x < f.foodratios.size(); x++)
+        double bestdelta = 300;
+        int location;
+        for(int x = 0; x < f.size(); x++)
         {
-
+            if(temp.foodratios.get(x).delta(goal) < bestdelta)
+            {
+                location = x;
+                bestdelta = temp.foodratios.get(x).delta(goal);
+            }
         }
 
     }
