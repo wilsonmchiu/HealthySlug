@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class reeval
 {
@@ -9,19 +10,35 @@ public class reeval
         double protgoal = 12;
         double carbgoal = 72;
         
-        diet stuff = new diet(fatgoal, protgoal, carbgoal);
+        //make this part use some method to get the arraylist of foods
+        ArrayList<Food> foodslist = new ArrayList<Food>();
+
+
+
+        diet samplediet = new diet(fatgoal, protgoal, carbgoal);
         printdata(fatgoal, protgoal, carbgoal, stuff);
         for(int x = 0; x<5 ; x++)
         {
             System.out.println("input fat prot and carb of food");
 
-            stuff.addfood(read.nextDouble(), read.nextDouble(), read.nextDouble());
+            samplediet.addfood(foodslist);
             fatgoal = fatgoal - stuff.getfat() + 16;
             protgoal = protgoal - stuff.getprot() + 12;
             carbgoal = carbgoal - stuff.getcarb() + 72;
             printdata(fatgoal, protgoal, carbgoal, stuff);
         }
         read.close();
+    }
+
+    static void findbest(ArrayList<Food> f, ratio goal)
+    {
+        diet temp = new diet(0,0,0);
+        temp.addfood(f);
+        for(int x = 0; x < f.foodratios.size(); x++)
+        {
+
+        }
+
     }
 
     static void printdata(double x, double y, double z, diet w)

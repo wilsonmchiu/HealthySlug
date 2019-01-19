@@ -4,7 +4,7 @@ public class diet
 {
     private double fatgoal, protgoal, carbgoal;
     ratio goal;
-    ArrayList<ratio> foodratios =new ArrayList<ratio>();    
+    public ArrayList<ratio> foodratios =new ArrayList<ratio>();    
     
     public diet(double fatgoal, double protgoal, double carbgoal)
     {
