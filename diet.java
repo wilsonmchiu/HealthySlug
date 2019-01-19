@@ -1,16 +1,13 @@
 public class diet
 {
-    private double fat;
-    private double prot;
-    private double carb;
-    private double fatratio;
-    private double protratio;
-    private double carbratio;
-    public diet()
+    private double fatgoal, protgoal, carbgoal;
+    private double fat, prot, carb;
+    private double fatratio, protratio, carbratio;
+    public diet(double x, double y, double z)
     {
-        fat = 0;
-        prot = 0;
-        carb = 0;
+        fatgoal = x;
+        protgoal = y;
+        carbgoal = z;
         calcratios();
     }
 
