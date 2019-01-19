@@ -175,14 +175,10 @@ public class Clicker {
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
 		OpenWeb(C9,"C9");
-		for (int i = 0; i < all_food.size(); i++)
-		{
-			System.out.println(all_food.get(i).name + " " + all_food.get(i).cals);
-		}
-		//OpenWeb(Cowell,"Cowell");
-		//OpenWeb(Crown,"Crown");
-		//OpenWeb(Porter,"Porter");
-		//OpenWeb(Rachel,"Rachel");
+		OpenWeb(Cowell,"Cowell");
+		OpenWeb(Crown,"Crown");
+		OpenWeb(Porter,"Porter");
+		OpenWeb(Rachel,"Rachel");
 
 	}
 }
