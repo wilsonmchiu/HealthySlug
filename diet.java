@@ -19,11 +19,11 @@ public class diet
         carbratio= carb / total * 100;    
     }
 
-    public void addfood(double x, double y, double z)
+    public void addfood(Food f)
     {
-        fat = x;
-        prot = y;
-        carb = z;
+        fat = Double.parseDouble(f.fat);
+        prot = Double.parseDouble(f.prot);
+        carb = Double.parseDouble(f.carb);
         calcratios();
     }
 

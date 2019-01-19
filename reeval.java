@@ -9,7 +9,7 @@ public class reeval
         double protgoal = 12;
         double carbgoal = 72;
         
-        diet stuff = new diet();
+        diet stuff = new diet(fatgoal, protgoal, carbgoal);
         printdata(fatgoal, protgoal, carbgoal, stuff);
         for(int x = 0; x<5 ; x++)
         {
