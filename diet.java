@@ -13,19 +13,14 @@ public class diet
 
     public void addfood(Food f)
     {
-        foodratios.append = new ratio(Double.parseDouble(f.fat), Double.parseDouble(f.prot), Double.parseDouble(f.carb));
+        foodratios.add(new ratio(Double.parseDouble(f.fat), Double.parseDouble(f.prot), Double.parseDouble(f.carb)));
     }
 
-    public double getfat()
+    public void addfood(ArrayList<Food> f)
     {
-        return fatratio;
-    }
-    public double getprot()
-    {
-        return protratio;
-    }
-    public double getcarb()
-    {
-        return carbratio;
+        for(int x = 0; x < f.size(); x++)
+        {
+            addfood(f.get(x));
+        }
     }
 }
