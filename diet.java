@@ -1,4 +1,4 @@
-public class info
+public class diet
 {
     private double fat;
     private double prot;
@@ -6,7 +6,7 @@ public class info
     private double fatratio;
     private double protratio;
     private double carbratio;
-    public info()
+    public diet()
     {
         fat = 0;
         prot = 0;
