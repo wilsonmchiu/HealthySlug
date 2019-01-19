@@ -5,9 +5,9 @@ public class reeval
     public static void main(String [] args)
     {
         Scanner read = new Scanner(System.in);
-        double fatgoal = 75;
-        double protgoal = 20;
-        double carbgoal = 5;
+        double fatgoal = 16;
+        double protgoal = 12;
+        double carbgoal = 72;
         
         info stuff = new info();
         printdata(fatgoal, protgoal, carbgoal, stuff);
@@ -16,9 +16,9 @@ public class reeval
             System.out.println("input fat prot and carb of food");
 
             stuff.addfood(read.nextDouble(), read.nextDouble(), read.nextDouble());
-            fatgoal = fatgoal - stuff.getfat() + 75;
-            protgoal = protgoal - stuff.getprot() + 20;
-            carbgoal = carbgoal - stuff.getcarb() + 5;
+            fatgoal = fatgoal - stuff.getfat() + 16;
+            protgoal = protgoal - stuff.getprot() + 12;
+            carbgoal = carbgoal - stuff.getcarb() + 72;
             printdata(fatgoal, protgoal, carbgoal, stuff);
         }
         read.close();
