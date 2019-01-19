@@ -1,22 +1,10 @@
 public class diet
 {
     private double fatgoal, protgoal, carbgoal;
-    private double fat, prot, carb;
-    private double fatratio, protratio, carbratio;
-    public diet(double x, double y, double z)
+    ratio goal, current;
+    public diet(double fatgoal, double protgoal, double carbgoal)
     {
-        fatgoal = x;
-        protgoal = y;
-        carbgoal = z;
-        calcratios();
-    }
-
-    public void calcratios()
-    {
-        double total = fat + prot + carb;
-        fatratio = fat / total * 100;
-        protratio = prot / total * 100;
-        carbratio= carb / total * 100;    
+        goal = new ratio(fatgoal, protgoal, carbgoal);
     }
 
     public void addfood(Food f)
