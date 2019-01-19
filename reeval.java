@@ -9,7 +9,7 @@ public class reeval
         double protgoal = 12;
         double carbgoal = 72;
         
-        info stuff = new info();
+        diet stuff = new diet();
         printdata(fatgoal, protgoal, carbgoal, stuff);
         for(int x = 0; x<5 ; x++)
         {
@@ -24,7 +24,7 @@ public class reeval
         read.close();
     }
 
-    static void printdata(double x, double y, double z, info w)
+    static void printdata(double x, double y, double z, diet w)
     {
         System.out.println("Fatgoal:" + x + " Protgoal:" + y + " Carbgoal:" + z);
       //  System.out.println("added stuff adjusted: " + w.getfat() + " "+ w.getprot() + " " + w.getcarb());
