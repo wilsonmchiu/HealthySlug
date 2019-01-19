@@ -12,11 +12,9 @@ public class reeval
         
         //make this part use some method to get the arraylist of foods
         ArrayList<Food> foodslist = new ArrayList<Food>();
+        diet samplediet = new diet(fatgoal, protgoal, carbgoal);
 
         
-
-
-        diet samplediet = new diet(fatgoal, protgoal, carbgoal);
         printdata(fatgoal, protgoal, carbgoal, stuff);
         for(int x = 0; x<5 ; x++)
         {

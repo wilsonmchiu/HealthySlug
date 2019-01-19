@@ -3,7 +3,7 @@ import java.util.*;
 public class diet
 {
     private double fatgoal, protgoal, carbgoal;
-    ratio goal;
+    public ratio goal;
     public ArrayList<ratio> foodratios =new ArrayList<ratio>();    
     
     public diet(double fatgoal, double protgoal, double carbgoal)
