@@ -1,7 +1,11 @@
+import java.util.*;
+
 public class diet
 {
     private double fatgoal, protgoal, carbgoal;
-    ratio goal, current;
+    ratio goal;
+    ArrayList<ratio> foodratios =new ArrayList<ratio>();    
+    
     public diet(double fatgoal, double protgoal, double carbgoal)
     {
         goal = new ratio(fatgoal, protgoal, carbgoal);
@@ -9,10 +13,7 @@ public class diet
 
     public void addfood(Food f)
     {
-        fat = Double.parseDouble(f.fat);
-        prot = Double.parseDouble(f.prot);
-        carb = Double.parseDouble(f.carb);
-        calcratios();
+        foodratios.append = new ratio(Double.parseDouble(f.fat), Double.parseDouble(f.prot), Double.parseDouble(f.carb));
     }
 
     public double getfat()
