@@ -4,12 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
-import com.google.common.base.Stopwatch;
+//import com.google.common.base.Stopwatch;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.*;
+import java.io.*;
 
 public class Clicker {
 
@@ -92,8 +93,8 @@ public class Clicker {
 		}
 	}
 	public static void AccessNutrition(String site, int meal_num,String hall)
-	{	
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\josep\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	{	//C:\Users\colin\javaPackages\chromeDriver
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\colin\\javaPackages\\chromeDriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		        
@@ -118,7 +119,7 @@ public class Clicker {
         getInfo(driver,meal_num,hall);
         driver.close();
 	}
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		Date now = new Date();
 		Calendar calendar = Calendar.getInstance();
@@ -175,10 +176,24 @@ public class Clicker {
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
 		OpenWeb(C9,"C9");
-		OpenWeb(Cowell,"Cowell");
-		OpenWeb(Crown,"Crown");
-		OpenWeb(Porter,"Porter");
-		OpenWeb(Rachel,"Rachel");
-
+		//OpenWeb(Cowell,"Cowell");
+		//OpenWeb(Crown,"Crown");
+		//OpenWeb(Porter,"Porter");
+		//OpenWeb(Rachel,"Rachel");
+		PrintWriter outFile = null;
+		outFile = new PrintWriter(new FileWriter("Output.txt"));
+		for (Food item:all_food){
+			System.out.println("KETO");
+			//outFile.println(item.name + " " + item.fat + "\n");
+			/*
+			if (Double.parseDouble(item.fat)/Double.parseDouble(item.carb) > 1){
+				System.out.println(item.name + " " + item.fat);
+				outFile.println(item.name + " " + item.fat + "\n");
+			}*/
+			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
+			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
+			
+		}
+		outFile.close();
 	}
 }
