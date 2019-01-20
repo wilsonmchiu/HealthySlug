@@ -15,11 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".KetoDiet" />
-        <activity android:name=".BulkDiet" />
-        <activity android:name=".BalDiet" />
         <activity android:name=".MealChooser" />
-        <activity android:name=".DiningHall"></activity>
+        <activity android:name=".DiningHall" />
+        <activity android:name=".KetoC9B" />
+        <activity android:name=".PalC9B" />
+        <activity android:name=".BalC9B"></activity>
     </application>
 
 </manifest>

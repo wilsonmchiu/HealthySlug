@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     private Button ketoDiet;
     private Button bulkDiet;
     private Button balDiet;
+    private Button palDiet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,32 +22,52 @@ public class MainActivity extends AppCompatActivity {
         ketoDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openKetoDiet();
+                String diet = "keto";
+                sendDiet(diet);
+                openDiningHall();
             }
         });
 
         bulkDiet = (Button)findViewById(R.id.bulkBtn);
-        ketoDiet.setOnClickListener(new View.OnClickListener() {
+        bulkDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBulkDiet();
+                String diet = "bulk";
+                sendDiet(diet);
+                openDiningHall();
+            }
+        });
+
+        balDiet = (Button)findViewById(R.id.balancedBtn);
+        balDiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String diet = "bal";
+                sendDiet(diet);
+                openDiningHall();
+            }
+        });
+
+        palDiet = (Button)findViewById(R.id.palBtn);
+        palDiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String diet = "pal";
+                sendDiet(diet);
+                openDiningHall();
             }
         });
     }
 
-    public void openKetoDiet(){
-        Intent intent = new Intent(this, KetoDiet.class);
+    public void sendDiet(String a){
+        DiningHall.retrieveDiet(a);
+    }
+    public void openDiningHall(){
+        Intent intent = new Intent(this, DiningHall.class);
         startActivity(intent);
+
     }
 
-    public void openBulkDiet(){
-        Intent intent = new Intent(this, BulkDiet.class);
-        startActivity(intent);
-    }
-    public void sendData(){
-        String a = "hi";
-        KetoDiet.retrieveData(a);
-    }
 }
 
 
