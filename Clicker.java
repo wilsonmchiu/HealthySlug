@@ -188,7 +188,17 @@ public class Clicker {
 		//OpenWeb(Porter,"Porter");
 		//OpenWeb(Rachel,"Rachel");
 		PrintWriter outFile = null;
-		outFile = new PrintWriter(new FileWriter("Output.txt"));
+//		outFile = new PrintWriter(new FileWriter("Output.txt"));
+		
+
+		//    ratio goal = new ratio(65,50,300); //balanced
+   		//    ratio goal = new ratio(50,50,0); //paleo
+		ratio goal = new ratio(75,20,5); //keto
+	    //    ratio goal = new ratio(2,6,9); //bulk
+		dietcalc calculator = new dietcalc();
+		calculator.generatediet(goal, all_food);
+
+
 		for (Food item:all_food){
 			System.out.println("KETO");
 			//outFile.println(item.name + " " + item.fat + "\n");
@@ -199,7 +209,6 @@ public class Clicker {
 			}*/
 			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
 			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
-			
 		}
 		outFile.close();
 	}
