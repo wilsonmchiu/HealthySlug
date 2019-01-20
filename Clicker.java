@@ -3,10 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.JavascriptExecutor;
-<<<<<<< HEAD
-//import com.google.common.base.Stopwatch;
-=======
->>>>>>> e399c6fbd5a00b5c76ba0474c2621de58fabd004
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Calendar;
@@ -124,16 +120,13 @@ public class Clicker {
         getInfo(driver,meal_num,hall);
         driver.close();
 	}
-<<<<<<< HEAD
-	public static void main(String[] args) throws IOException
-=======
 
 	public ArrayList<Food> getList()
 	{
 		return all_food;
 	}
+	
 	public static void main(String[] args)
->>>>>>> e399c6fbd5a00b5c76ba0474c2621de58fabd004
 	{
 		Date now = new Date();
 		Calendar calendar = Calendar.getInstance();
