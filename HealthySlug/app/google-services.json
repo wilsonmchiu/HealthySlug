@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "845446233528",
+    "firebase_url": "https://food-nutrition-387e6.firebaseio.com",
+    "project_id": "food-nutrition-387e6",
+    "storage_bucket": "food-nutrition-387e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845446233528:android:ff45e36ffc8eb8d7",
+        "android_client_info": {
+          "package_name": "com.example.wilso.healthyslug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845446233528-ji640cgesqim9tsefpjnj3la7pcsnvlu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wilso.healthyslug",
+            "certificate_hash": "3d220d536d4384f00123c11cf68a66c8c174697f"
+          }
+        },
+        {
+          "client_id": "845446233528-d53mibsqk4clmtsuc6unjjish38btqaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrfuT74GjDg7KKnzR5poQ6EC1JGxr62IQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845446233528-d53mibsqk4clmtsuc6unjjish38btqaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
