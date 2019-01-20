@@ -2,9 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
-import com.google.common.base.Stopwatch;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Calendar;
@@ -93,7 +91,7 @@ public class Clicker {
 	}
 	public static void AccessNutrition(String site, int meal_num,String hall)
 	{	
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\josep\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium-java-3.141.59\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		        
@@ -117,6 +115,11 @@ public class Clicker {
         driver.findElement(By.xpath(report)).click();	
         getInfo(driver,meal_num,hall);
         driver.close();
+	}
+
+	public ArrayList<Food> getList()
+	{
+		return all_food;
 	}
 	public static void main(String[] args)
 	{
