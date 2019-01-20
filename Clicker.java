@@ -120,11 +120,6 @@ public class Clicker {
         getInfo(driver,meal_num,hall);
         driver.close();
 	}
-
-	public ArrayList<Food> getList()
-	{
-		return all_food;
-	}
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -182,23 +177,30 @@ public class Clicker {
 		String Rachel_Dinner = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=30&locationName=Rachel+Carson+Oakes+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Dinner&sName=";
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
-		OpenWeb(C9,"C9");
+		//OpenWeb(C9,"C9");
 		//OpenWeb(Cowell,"Cowell");
 		//OpenWeb(Crown,"Crown");
 		//OpenWeb(Porter,"Porter");
 		//OpenWeb(Rachel,"Rachel");
-		PrintWriter outFile = null;
-		outFile = new PrintWriter(new FileWriter("Output.txt"));
 		
-
-		//    ratio goal = new ratio(65,50,300); //balanced
-   		//    ratio goal = new ratio(50,50,0); //paleo
-		ratio goal = new ratio(75,20,5); //keto
-	    //    ratio goal = new ratio(2,6,9); //bulk
-		dietcalc calculator = new dietcalc();
-		calculator.generatediet(goal, all_food);
-
-
+		ratio [] goal = {new ratio(65,50,300), new ratio(50,50,0), new ratio(75,20,5), new ratio(2,6,9)};
+		String [] plan = {Balanced, Paleo, Keto, Bulk};
+		String [] meal = {Breakfast, Lunch, Dinner};
+		
+		PrintWriter outFile = null;
+		for(int j=0; j<4; j++)
+		{
+			for(int i = 0; i < 3; i++)
+			{
+				all_food = new ArrayList<Food>();
+				outFile = new PrintWriter(new FileWriter("Nine"+ plan[j] + meal[i] + ".txt"));
+				AccessNutrition(C9[i],i,"C9");
+				dietcalc calculator = new dietcalc();
+				diet menu = calculator.generatediet(goal[j], all_food);
+				
+			}
+		}
+	
 		for (Food item:all_food){
 			System.out.println("KETO");
 			//outFile.println(item.name + " " + item.fat + "\n");

@@ -2,9 +2,10 @@ import java.util.*;
 
 public class dietcalc
 {
-    public diet generatediet(ratio goal, ArrayList<Food> menu)
-    {  
+    public String[] generatediet(ratio goal, ArrayList<Food> menu)
+    {
         int numberfoodeaten = 5; 
+        String[] eatenStrings = new String[numberfoodeaten];
         //make this part use some method to get the arraylist of foods
         diet samplediet = new diet(goal);
         samplediet.addfood(menu);
@@ -14,11 +15,11 @@ public class dietcalc
         {
             int location = findbest(samplediet.foodratios, goal, eaten);
             eaten.add(location);
-            System.out.println(menu.get(location).name + " has been eaten");
+            eatenStrings[x] = menu.get(location).name;
             samplediet.goal = new ratio(goal.fatratio + samplediet.goal.fatratio - samplediet.foodratios.get(location).fatratio, goal.prot + samplediet.goal.prot - samplediet.foodratios.get(location).protratio, goal.fat + samplediet.goal.carb - samplediet.foodratios.get(location).carbratio);
             printdata(samplediet.goal.fatratio, samplediet.goal.protratio, samplediet.goal.carbratio, samplediet);
         }
-        return samplediet;
+        return eatenStrings;
     }
 
     static int findbest(ArrayList<ratio> f, ratio goal, ArrayList<Integer> eaten)
