@@ -2,7 +2,7 @@ import java.util.*;
 
 public class dietcalc
 {
-    public dietcalc(ratio goal, ArrayList<Food> menu)
+    public diet dietcalc(ratio goal, ArrayList<Food> menu)
     {   
         //make this part use some method to get the arraylist of foods
         diet samplediet = new diet(goal);
@@ -11,8 +11,12 @@ public class dietcalc
             System.out.println("input fat prot and carb of food");
             int location = findbest(menu, goal);
             samplediet.addfood(menu.get(location));
+            samplediet
         }
+        return samplediet;
     }
+
+
 
     static int findbest(ArrayList<Food> f, ratio goal)
     {
