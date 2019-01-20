@@ -1,33 +1,25 @@
 import java.util.*;
 
-public class reeval
+public class dietcalc
 {
-    public reeval(ratio goal)
+    public dietcalc(ratio goal, ArrayList<Food> menu)
     {   
         //make this part use some method to get the arraylist of foods
-        ArrayList<Food> foodslist = new ArrayList<Food>();
         diet samplediet = new diet(goal);
-
-        
-        printdata(fatgoal, protgoal, carbgoal, stuff);
         for(int x = 0; x<5 ; x++)
         {
             System.out.println("input fat prot and carb of food");
-
-            samplediet.addfood(foodslist);
-            fatgoal = fatgoal - stuff.getfat() + 16;
-            protgoal = protgoal - stuff.getprot() + 12;
-            carbgoal = carbgoal - stuff.getcarb() + 72;
-            printdata(fatgoal, protgoal, carbgoal, stuff);
+            int location = findbest(menu, goal);
+            samplediet.addfood(menu.get(location));
         }
     }
 
-    static void findbest(ArrayList<Food> f, ratio goal)
+    static int findbest(ArrayList<Food> f, ratio goal)
     {
         diet temp = new diet(0,0,0);
         temp.addfood(f);
-        double bestdelta = 300;
-        int location;
+        double bestdelta = 1000;
+        int location = 0;
         for(int x = 0; x < f.size(); x++)
         {
             if(temp.foodratios.get(x).delta(goal) < bestdelta)
@@ -36,7 +28,7 @@ public class reeval
                 bestdelta = temp.foodratios.get(x).delta(goal);
             }
         }
-
+        return location;
     }
 
     static void printdata(double x, double y, double z, diet w)
