@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BulkDiet.class);
         startActivity(intent);
     }
+    public void sendData(){
+        String a = "hi";
+        KetoDiet.retrieveData(a);
+    }
 }
 
 

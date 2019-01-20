@@ -13,4 +13,8 @@ public class KetoDiet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet1);
     }
+
+    public static void retrieveData(String a){
+
+    }
 }
