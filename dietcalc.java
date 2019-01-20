@@ -2,15 +2,11 @@ import java.util.*;
 
 public class reeval
 {
-    public static void main(String [] args)
-    {
-        double fatgoal = 16;
-        double protgoal = 12;
-        double carbgoal = 72;
-        
+    public reeval(ratio goal)
+    {   
         //make this part use some method to get the arraylist of foods
         ArrayList<Food> foodslist = new ArrayList<Food>();
-        diet samplediet = new diet(fatgoal, protgoal, carbgoal);
+        diet samplediet = new diet(goal);
 
         
         printdata(fatgoal, protgoal, carbgoal, stuff);
