@@ -184,20 +184,24 @@ public class Clicker {
 		//OpenWeb(Rachel,"Rachel");
 		
 		ratio [] goal = {new ratio(65,50,300), new ratio(50,50,0), new ratio(75,20,5), new ratio(2,6,9)};
-		String [] plan = {Balanced, Paleo, Keto, Bulk};
-		String [] meal = {Breakfast, Lunch, Dinner};
+		String [] plan = {"Balanced", "Paleo", "Keto", "Bulk"};
+		String [] meal = {"Breakfast", "Lunch", "Dinner"};
 		
-		PrintWriter outFile = null;
-		for(int j=0; j<4; j++)
+		for(int i=0; i<3; i++)
 		{
-			for(int i = 0; i < 3; i++)
+			all_food = new ArrayList<Food>();
+			AccessNutrition(C9[i],i,"C9");
+			for(int j = 0; j < 4; j++)
 			{
-				all_food = new ArrayList<Food>();
-				outFile = new PrintWriter(new FileWriter("Nine"+ plan[j] + meal[i] + ".txt"));
-				AccessNutrition(C9[i],i,"C9");
+				PrintWriter outFile = null;
+				outFile = new PrintWriter(new FileWriter("dietaryplans\\Nine"+ plan[j] + meal[i] + ".txt"));
 				dietcalc calculator = new dietcalc();
-				diet menu = calculator.generatediet(goal[j], all_food);
-				
+				String[] eatenStrings = calculator.generatediet(goal[j], all_food);
+				for(String str :eatenStrings)
+				{
+					outFile.println(str);
+				}
+				outFile.close();
 			}
 		}
 	
@@ -210,8 +214,8 @@ public class Clicker {
 				outFile.println(item.name + " " + item.fat + "\n");
 			}*/
 			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
-			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
+		//	outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
 		}
-		outFile.close();
+//		outFile.close();
 	}
 }
