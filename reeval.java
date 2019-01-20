@@ -1,11 +1,9 @@
-import java.util.Scanner;
 import java.util.*;
 
 public class reeval
 {
     public static void main(String [] args)
     {
-        Scanner read = new Scanner(System.in);
         double fatgoal = 16;
         double protgoal = 12;
         double carbgoal = 72;
@@ -26,7 +24,6 @@ public class reeval
             carbgoal = carbgoal - stuff.getcarb() + 72;
             printdata(fatgoal, protgoal, carbgoal, stuff);
         }
-        read.close();
     }
 
     static void findbest(ArrayList<Food> f, ratio goal)

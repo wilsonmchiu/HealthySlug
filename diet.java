@@ -10,6 +10,10 @@ public class diet
     {
         goal = new ratio(fatgoal, protgoal, carbgoal);
     }
+    public diet(ratio r)
+    {
+        goal = r;
+    }
 
     public void addfood(Food f)
     {
