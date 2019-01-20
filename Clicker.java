@@ -94,7 +94,7 @@ public class Clicker {
 	}
 	public static void AccessNutrition(String site, int meal_num,String hall)
 	{	//C:\Users\colin\javaPackages\chromeDriver
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\colin\\javaPackages\\chromeDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium-java-3.141.59\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		        
@@ -154,7 +154,7 @@ public class Clicker {
 		String C9_Break = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=40&locationName=Colleges+Nine+%26+Ten+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Breakfast&sName=";
 		String C9_Lunch = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=40&locationName=Colleges+Nine+%26+Ten+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Lunch&sName=";
 		String C9_Dinner = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=40&locationName=Colleges+Nine+%26+Ten+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Dinner&sName=";
-		String[] C9 = {C9_Break,C9_Lunch,C9_Dinner};
+		String[] Nine = {C9_Break,C9_Lunch,C9_Dinner};
 		
 		String Cowell_Break = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Breakfast&sName=";
 		String Cowell_Lunch = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Lunch&sName=";
@@ -176,6 +176,7 @@ public class Clicker {
 		String Rachel_Dinner = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=30&locationName=Rachel+Carson+Oakes+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Dinner&sName=";
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
+		String[][] collegemeals = {Nine, Cowell, Crown, Porter,Rachel};
 		//OpenWeb(C9,"C9");
 
 		OpenWeb(Cowell,"Cowell");
@@ -225,42 +226,45 @@ public class Clicker {
 		//OpenWeb(Rachel,"Rachel");
 		
 		ratio [] goal = {new ratio(65,50,300), new ratio(50,50,0), new ratio(75,20,5), new ratio(2,6,9)};
+		String [] college = {"Nine", "Cowell", "Crown", "Porter", "Rachel"};
 		String [] plan = {"Balanced", "Paleo", "Keto", "Bulk"};
 		String [] meal = {"Breakfast", "Lunch", "Dinner"};
-		
-		for(int i=0; i<3; i++)
+		for(int k =0; k<5; k++)
 		{
-			all_food = new ArrayList<Food>();
-			AccessNutrition(C9[i],i,"C9");
-			for(int j = 0; j < 4; j++)
+			for(int i=0; i<3; i++)
 			{
-				PrintWriter outFile = null;
-				outFile = new PrintWriter(new FileWriter("dietaryplans\\Nine"+ plan[j] + meal[i] + ".txt"));
-				dietcalc calculator = new dietcalc();
-				String[] eatenStrings = calculator.generatediet(goal[j], all_food);
-				for(String str :eatenStrings)
+				all_food = new ArrayList<Food>();
+				AccessNutrition(collegemeals[k][i],i, college[i]);
+				for(int j = 0; j < 4; j++)
 				{
-					outFile.println(str);
+					PrintWriter outFile = null;
+					outFile = new PrintWriter(new FileWriter("dietaryplans\\" + college[k] + plan[j] + meal[i] + ".txt"));
+					dietcalc calculator = new dietcalc();
+					String[] eatenStrings = calculator.generatediet(goal[j], all_food);
+					for(String str :eatenStrings)
+					{
+						outFile.println(str);
+					}
+					outFile.close();
 				}
-				outFile.close();
-			}
+			}	
 		}
 	
-		for (Food item:all_food){
-			System.out.println("KETO");
+//		for(Food item:all_food){
+//			System.out.println("KETO");
 			//outFile.println(item.name + " " + item.fat + "\n");
 			/*
 			if (Double.parseDouble(item.fat)/Double.parseDouble(item.carb) > 1){
 				System.out.println(item.name + " " + item.fat);
 				outFile.println(item.name + " " + item.fat + "\n");
 			}*/
-			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
-			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
+//			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
+//			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
 
 		}
 		outFileKeto.close();
 		outFileBalance.close();
 		outFilePaleo.close();
 		outFileBulk.close();
-	}
+		}
 }
