@@ -2,11 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
-<<<<<<< HEAD
 //import com.google.common.base.Stopwatch;
-=======
->>>>>>> e399c6fbd5a00b5c76ba0474c2621de58fabd004
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Calendar;
@@ -95,11 +93,8 @@ public class Clicker {
 		}
 	}
 	public static void AccessNutrition(String site, int meal_num,String hall)
-
-
-	{	
-		System.setProperty("webdriver.chrome.driver", "C:\\selenium-java-3.141.59\\chromedriver.exe");
-
+	{	//C:\Users\colin\javaPackages\chromeDriver
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\colin\\javaPackages\\chromeDriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		        
@@ -124,16 +119,7 @@ public class Clicker {
         getInfo(driver,meal_num,hall);
         driver.close();
 	}
-<<<<<<< HEAD
 	public static void main(String[] args) throws IOException
-=======
-
-	public ArrayList<Food> getList()
-	{
-		return all_food;
-	}
-	public static void main(String[] args)
->>>>>>> e399c6fbd5a00b5c76ba0474c2621de58fabd004
 	{
 		Date now = new Date();
 		Calendar calendar = Calendar.getInstance();
@@ -189,25 +175,51 @@ public class Clicker {
 		String Rachel_Dinner = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=30&locationName=Rachel+Carson+Oakes+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Dinner&sName=";
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
-		OpenWeb(C9,"C9");
-		//OpenWeb(Cowell,"Cowell");
+		//OpenWeb(C9,"C9");
+		OpenWeb(Cowell,"Cowell");
 		//OpenWeb(Crown,"Crown");
 		//OpenWeb(Porter,"Porter");
 		//OpenWeb(Rachel,"Rachel");
-		PrintWriter outFile = null;
-		outFile = new PrintWriter(new FileWriter("Output.txt"));
+		PrintWriter outFileKeto = null;
+		PrintWriter outFileBalance = null;
+		PrintWriter outFilePaleo = null;
+		PrintWriter outFileBulk = null;
+
+		outFileKeto = new PrintWriter(new FileWriter("Keto.txt"));
+		outFileBalance = new PrintWriter(new FileWriter("Balance.txt"));
+		outFilePaleo = new PrintWriter(new FileWriter("Paleo.txt"));
+		outFileBulk = new PrintWriter(new FileWriter("Bulk.txt"));
 		for (Food item:all_food){
-			System.out.println("KETO");
-			//outFile.println(item.name + " " + item.fat + "\n");
-			/*
-			if (Double.parseDouble(item.fat)/Double.parseDouble(item.carb) > 1){
-				System.out.println(item.name + " " + item.fat);
-				outFile.println(item.name + " " + item.fat + "\n");
-			}*/
-			System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
-			outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
-			
+			if ((item.cals).indexOf('-')==-1 &&Double.parseDouble(item.cals) > 0){//&&Double.parseDouble(item.fat)!=0&&Double.parseDouble(item.carb)!=0&&Double.parseDouble(item.prot)!=0){
+				//outFile.println(item.name + " " + item.fat + "\n");
+				
+				if (Double.parseDouble(item.fat)>Double.parseDouble(item.carb)){
+					System.out.println("KETO");
+					System.out.println(item.name + " " + item.fat);
+					outFileKeto.println(item.name + "\n");
+				}
+				if (Double.parseDouble(item.carb)>Double.parseDouble(item.fat)&& Double.parseDouble(item.carb)>Double.parseDouble(item.prot)){
+					System.out.println("BALANCE");
+					System.out.println(item.name + " " + item.carb);
+					outFileBalance.println(item.name + "\n");
+				}
+				if (Double.parseDouble(item.carb) < 5){
+					System.out.println("PALEO");
+					System.out.println(item.name + " " + item.carb);
+					outFilePaleo.println(item.name + "\n");
+				}
+				if (Double.parseDouble(item.prot)>Double.parseDouble(item.fat)){
+					System.out.println("BULK");
+					System.out.println(item.name + " " + item.prot);
+					outFileBulk.println(item.name + "\n");
+				}
+				System.out.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb);
+				//outFile.println(item.name + " " + item.fat + " " + item.prot + " " + item.carb + "\n");
+			}
 		}
-		outFile.close();
+		outFileKeto.close();
+		outFileBalance.close();
+		outFilePaleo.close();
+		outFileBulk.close();
 	}
 }
