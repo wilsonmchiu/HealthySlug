@@ -126,7 +126,7 @@ public class Clicker {
 		return all_food;
 	}
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		Date now = new Date();
 		Calendar calendar = Calendar.getInstance();
@@ -188,7 +188,7 @@ public class Clicker {
 		//OpenWeb(Porter,"Porter");
 		//OpenWeb(Rachel,"Rachel");
 		PrintWriter outFile = null;
-//		outFile = new PrintWriter(new FileWriter("Output.txt"));
+		outFile = new PrintWriter(new FileWriter("Output.txt"));
 		
 
 		//    ratio goal = new ratio(65,50,300); //balanced
