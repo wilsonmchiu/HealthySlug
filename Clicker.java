@@ -176,7 +176,7 @@ public class Clicker {
 		String Rachel_Dinner = "https://nutrition.sa.ucsc.edu/pickMenu.asp?locationNum=30&locationName=Rachel+Carson+Oakes+Dining+Hall&dtdate=" + month_str + "%2F" + day_str + "%2F" + year_str + "&mealName=Dinner&sName=";
 		String[] Rachel = {Rachel_Break,Rachel_Lunch ,Rachel_Dinner};
 		
-		String[][] collegemeals = {Nine, Cowell, Crown, Porter,Rachel};
+		String[][] collegemeals = {Nine, Cowell, /*Crown, Porter,*/ Rachel};
 		//OpenWeb(C9,"C9");
 
 		OpenWeb(Cowell,"Cowell");
@@ -226,10 +226,10 @@ public class Clicker {
 		//OpenWeb(Rachel,"Rachel");
 		
 		ratio [] goal = {new ratio(65,50,300), new ratio(50,50,0), new ratio(75,20,5), new ratio(2,6,9)};
-		String [] college = {"Nine", "Cowell", "Crown", "Porter", "Rachel"};
+		String [] college = {"Nine", "Cowell", /*"Crown", "Porter",*/ "Rachel"};
 		String [] plan = {"Balanced", "Paleo", "Keto", "Bulk"};
 		String [] meal = {"Breakfast", "Lunch", "Dinner"};
-		for(int k =0; k<5; k++)
+		for(int k =0; k<3; k++)
 		{
 			for(int i=0; i<3; i++)
 			{
