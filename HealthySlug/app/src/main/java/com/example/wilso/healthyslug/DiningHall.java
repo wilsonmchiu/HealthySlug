@@ -8,12 +8,26 @@ import android.widget.Button;
 
 public class DiningHall extends AppCompatActivity {
 
-    private static String dietdiet;
+    //private String dietdiet;
     private Button cowell;
     private Button crown;
     private Button porter;
     private Button rc;
     private Button c9;
+
+    private static String hall;
+
+    /*
+    //Constructor
+    public DiningHall(String diet){
+        dietdiet = diet;
+    }
+
+    public DiningHall(){
+
+    }
+    */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +38,7 @@ public class DiningHall extends AppCompatActivity {
         cowell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hall = "cowell";
-                sendHall(dietdiet, hall);
+                setHall("Cowell");
                 openMealChooser();
             }
         });
@@ -34,8 +47,7 @@ public class DiningHall extends AppCompatActivity {
         crown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hall = "crown";
-                sendHall(dietdiet, hall);
+                setHall("Crown");
                 openMealChooser();
             }
         });
@@ -44,8 +56,7 @@ public class DiningHall extends AppCompatActivity {
         porter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hall = "porter";
-                sendHall(dietdiet, hall);
+                setHall("Porter");
                 openMealChooser();
             }
         });
@@ -54,8 +65,7 @@ public class DiningHall extends AppCompatActivity {
         rc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hall = "rc";
-                sendHall(dietdiet, hall);
+                setHall("Rachel");
                 openMealChooser();
             }
         });
@@ -64,8 +74,7 @@ public class DiningHall extends AppCompatActivity {
         c9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hall = "c9";
-                sendHall(dietdiet, hall);
+                setHall("Nine");
                 openMealChooser();
             }
         });
@@ -73,17 +82,17 @@ public class DiningHall extends AppCompatActivity {
 
     }
 
+    public static String getHall(){
+        return hall;
+    }
+
+    public void setHall(String hall){
+        this.hall = hall;
+    }
+
     public void openMealChooser(){
         Intent intent = new Intent(this, MealChooser.class);
         startActivity(intent);
     }
 
-    public static void retrieveDiet(String diet){
-        dietdiet = diet;
-    }
-
-    public static void sendHall(String dietdiet, String hall){
-        MealChooser.retrieveHall(dietdiet, hall);
-
-    }
 }

@@ -13,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
     private Button balDiet;
     private Button palDiet;
 
+    private static String diet;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ketoDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String diet = "keto";
-                sendDiet(diet);
+                setDiet("Keto");
                 openDiningHall();
             }
         });
@@ -32,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         bulkDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String diet = "bulk";
-                sendDiet(diet);
+                setDiet("Bulk");
                 openDiningHall();
             }
         });
@@ -42,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         balDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String diet = "bal";
-                sendDiet(diet);
+                setDiet("Balanced");
                 openDiningHall();
             }
         });
@@ -52,16 +52,20 @@ public class MainActivity extends AppCompatActivity {
         palDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String diet = "pal";
-                sendDiet(diet);
+                setDiet("Paleo");
                 openDiningHall();
             }
         });
     }
 
-    public void sendDiet(String a){
-        DiningHall.retrieveDiet(a);
+    public void setDiet(String diet){
+        this.diet = diet;
     }
+
+    public static String getDiet(){
+        return diet;
+    }
+
     public void openDiningHall(){
         Intent intent = new Intent(this, DiningHall.class);
         startActivity(intent);

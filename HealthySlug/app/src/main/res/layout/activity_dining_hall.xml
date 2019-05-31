@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DiningHall">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!-- top action bar -->
+    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    <View android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/dropshadow"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cddbe1"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- top action bar end -->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/dhlogo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dininglogo"/>
+            android:orientation="vertical"
+            >
 
             <Button
                 android:id="@+id/cowellBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cowell"/>
+                android:background="@drawable/cowell"
+                android:layout_marginTop="20dp"/>
 
             <Button
                 android:id="@+id/crownBtn"
@@ -52,6 +68,6 @@
                 android:background="@drawable/collegenine"/>
 
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

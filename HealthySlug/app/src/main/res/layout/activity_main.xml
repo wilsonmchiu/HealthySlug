@@ -1,89 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- top action bar -->
+    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    <View android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/dropshadow"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background= "#cddbe1"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <LinearLayout
+        android:id ="@+id/main_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/mainTopBar"
-                android:layout_width="match_parent"
-                android:layout_height="74dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/ketoBtn"
-                android:layout_width="211dp"
-                android:layout_height="129dp"
-
-                android:layout_alignLeft="@+id/palBtn"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/palBtn"
-                android:layout_margin="5dp"
-                android:background="@drawable/ketobtn"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="92dp" />
-
-            <Button
-                android:id="@+id/palBtn"
+            
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/ketoBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ketobtn"
+                    />
+
+                <Button
+                    android:id="@+id/palBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/paleobtn" />
+            </LinearLayout>
 
 
-                android:layout_alignTop="@+id/balancedBtn"
-                android:layout_toLeftOf="@+id/balancedBtn"
-                android:layout_toStartOf="@+id/balancedBtn"
-                android:background="@drawable/paleobtn"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="340dp" />
-
-            <Button
-                android:id="@+id/balancedBtn"
-
-
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
-                android:layout_below="@+id/ketoBtn"
-                android:layout_toEndOf="@+id/ketoBtn"
-                android:layout_toRightOf="@+id/ketoBtn"
-                android:background="@drawable/basicbtn"
-                tools:layout_editor_absoluteX="206dp"
-                tools:layout_editor_absoluteY="324dp" />
+                <Button
+                    android:id="@+id/balancedBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/basicbtn"
+                    />
 
-            <Button
-                android:id="@+id/bulkBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                <Button
+                    android:id="@+id/bulkBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bulkbtn"/>
 
+            </LinearLayout>
 
-                android:layout_alignTop="@+id/ketoBtn"
-                android:layout_toEndOf="@+id/ketoBtn"
-                android:layout_toRightOf="@+id/ketoBtn"
-                android:background="@drawable/bulkbtn"
-                tools:layout_editor_absoluteX="127dp"
-                tools:layout_editor_absoluteY="309dp" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

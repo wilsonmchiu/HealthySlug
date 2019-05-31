@@ -8,12 +8,29 @@ import android.widget.Button;
 
 public class MealChooser extends AppCompatActivity {
 
-    private static String dietdiet;
-    private static String hallhall;
+    /*
+    private String dietFinal;
+    private String hallFinal;
+    private String mealFinal;
+    */
+
     private static String meal;
+
     private Button breakfast;
     private Button lunch;
     private Button dinner;
+
+    /*
+    //Constructor
+    public MealChooser(String diet, String hall){
+        dietFinal = diet;
+        hallFinal = hall;
+    }
+
+    public MealChooser(){
+
+    }
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,75 +42,43 @@ public class MealChooser extends AppCompatActivity {
         breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String meal = "breakfast";
-                /*
-                if(dietdiet.equals("keto") && hallhall.equals("c9")){
-                    sendInfo(dietdiet, hallhall, meal);
-                    openKetoC9B();
-                }
-                else if(dietdiet.equals("pal") && hallhall.equals("c9")){
-                    sendInfo(dietdiet, hallhall, meal);
-                    openPalC9B();
-                }
-                else if(dietdiet.equals("bal") && hallhall.equals("c9")){
-                    sendInfo(dietdiet, hallhall, meal);
-                    openBalC9B();
-                }
-                else{
-
-                }
-                */
-                openKetoC9B();
+                setMeal("Breakfast");
+                openMealOutput();
             }
         });
 
-        /*
+
         lunch = (Button)findViewById(R.id.lunchBtn);
         lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String meal = "breakfast";
-                sendInfo(dietdiet, hallhall, meal);
-                openKetoC9B();
+                setMeal("Lunch");
+                openMealOutput();
             }
         });
 
-        breakfast = (Button)findViewById(R.id.cowellBtn);
-        breakfast.setOnClickListener(new View.OnClickListener() {
+        dinner = (Button)findViewById(R.id.dinBtn);
+        dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String meal = "breakfast";
-                sendInfo(dietdiet, hallhall, meal);
-                openKetoCowellB();
+                setMeal("Dinner");
+                openMealOutput();
             }
         });
-        */
+
     }
 
-    public void openKetoC9B(){
-        Intent intent = new Intent(this, ProductsActivity.class);
+    public static String getMeal(){
+        return meal;
+    }
+
+    public void setMeal(String meal){
+        this.meal = meal;
+    }
+
+    public void openMealOutput(){
+        Intent intent = new Intent(this, MealOutput.class);
         startActivity(intent);
     }
-
-    public void openBalC9B(){
-        Intent intent = new Intent(this, BalC9B.class);
-        BalC9B.retrieveInfo(dietdiet, hallhall, meal);
-        startActivity(intent);
-    }
-    public void openPalC9B(){
-        Intent intent = new Intent(this, PalC9B.class);
-        PalC9B.retrieveInfo(dietdiet, hallhall, meal);
-        startActivity(intent);
-    }
-
-    public static void retrieveHall(String diet, String hall ) {
-        dietdiet = diet;
-        hallhall = hall;
-    }
-
-    public static void sendInfo(String dietdiet, String hallhall, String meal ){
-
-    }
-
 
 }

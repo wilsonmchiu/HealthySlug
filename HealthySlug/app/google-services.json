@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "845446233528-me37ui5iicjd5uqqsj7oo2thd680iddb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wilso.healthyslug",
+            "certificate_hash": "2e4216605e68a2d2d0f8f1b7457896e79f48758e"
+          }
+        },
+        {
           "client_id": "845446233528-ji640cgesqim9tsefpjnj3la7pcsnvlu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "845446233528-d53mibsqk4clmtsuc6unjjish38btqaq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
