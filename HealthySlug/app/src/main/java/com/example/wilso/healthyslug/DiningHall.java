@@ -8,7 +8,6 @@ import android.widget.Button;
 
 public class DiningHall extends AppCompatActivity {
 
-    //private String dietdiet;
     private Button cowell;
     private Button crown;
     private Button porter;
@@ -16,17 +15,6 @@ public class DiningHall extends AppCompatActivity {
     private Button c9;
 
     private static String hall;
-
-    /*
-    //Constructor
-    public DiningHall(String diet){
-        dietdiet = diet;
-    }
-
-    public DiningHall(){
-
-    }
-    */
 
 
     @Override

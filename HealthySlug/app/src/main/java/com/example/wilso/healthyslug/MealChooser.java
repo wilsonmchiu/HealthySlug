@@ -8,11 +8,6 @@ import android.widget.Button;
 
 public class MealChooser extends AppCompatActivity {
 
-    /*
-    private String dietFinal;
-    private String hallFinal;
-    private String mealFinal;
-    */
 
     private static String meal;
 
@@ -20,17 +15,6 @@ public class MealChooser extends AppCompatActivity {
     private Button lunch;
     private Button dinner;
 
-    /*
-    //Constructor
-    public MealChooser(String diet, String hall){
-        dietFinal = diet;
-        hallFinal = hall;
-    }
-
-    public MealChooser(){
-
-    }
-    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
